@@ -1,27 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Home.css'
 import Carousel from '../carousel/Carousel';
+import { useLoaderData } from 'react-router-dom';
 
 
 
 const Home = () => {
 
+    const names = useLoaderData()
 
-    const handleName = () =>{
-        console.log("hello")
+    const [singleData , setSingleData] = useState({})
+
+
+    const handleName = (id) => {
+        fetch(`http://localhost:5000/names/${id}`)
+            .then(res => res.json())
+            .then(data => setSingleData(data))
+
     }
+
+    useEffect(()=>{
+        fetch(`http://localhost:5000/names/travel01`)
+            .then(res => res.json())
+            .then(data => setSingleData(data)) 
+    },[])
 
 
     return (
-        <div className='bg-img h-[93vh] flex justify-center items-center'>
+        <div className=' h-[93vh] lg:flex justify-center items-center'>
 
-        <div>
-            <h1 className='text-4xl'>Cox's bazar</h1>
-            <p>Cox's Bazar is a city, fishing port, tourism centre and district headquarters in southeastern Bangladesh. It is famous mostly for its long natural sandy beach, and it ...</p>
-            <button className='btn btn-sm'>Booking</button>
-        </div>
+            <div>
+                <h1 className='text-4xl'>{singleData.placeName}</h1>
+                <p>{singleData.description}</p>
+                <button className='btn btn-sm'>Booking</button>
+            </div>
 
-           <Carousel handleName={handleName}></Carousel>
+            <Carousel names={names} handleName={handleName}></Carousel>
         </div>
     );
 };
