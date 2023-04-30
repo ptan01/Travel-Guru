@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css'
 import Carousel from '../carousel/Carousel';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 
 
@@ -32,7 +32,7 @@ const Home = () => {
             <div>
                 <h1 className='text-4xl'>{singleData.placeName}</h1>
                 <p>{singleData.description}</p>
-                <button className='btn btn-sm'>Booking</button>
+               <Link to={`/destination/${singleData.id}`}>Booking</Link>
             </div>
 
             <Carousel names={names} handleName={handleName}></Carousel>
