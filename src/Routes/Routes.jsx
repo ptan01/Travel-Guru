@@ -3,6 +3,7 @@ import Main from "../leyout/main/Main";
 import Home from "../pages/home/home/Home";
 import Destination from "../pages/destination/destination/Destination";
 import Blog from "../pages/Blog/Blog/Blog";
+import Login from "../pages/login/Login";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
         {
             path: '/blog',
             element: <Blog></Blog>
+        },
+        {
+          path: '/login',
+          element: <Login></Login>
         }
     ]
 

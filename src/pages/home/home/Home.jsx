@@ -29,10 +29,10 @@ const Home = () => {
     return (
         <div className=' h-[93vh] lg:flex justify-center items-center'>
 
-            <div>
-                <h1 className='text-4xl'>{singleData.placeName}</h1>
-                <p>{singleData.description}</p>
-               <Link to={`/destination/${singleData.id}`}>Booking</Link>
+            <div className='mx-2'>
+                <h1 className='text-7xl'>{singleData.placeName}</h1>
+                <p className='py-5'>{singleData.description}</p>
+               <Link to={`/destination/${singleData.id}`}><button className="btn btn-sm">Booking  =&gt;</button></Link>
             </div>
 
             <Carousel names={names} handleName={handleName}></Carousel>
