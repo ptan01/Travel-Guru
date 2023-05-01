@@ -13,14 +13,14 @@ const Home = () => {
 
 
     const handleName = (id) => {
-        fetch(`http://localhost:5000/names/${id}`)
+        fetch(`https://travel-guru-server-ptan01.vercel.app/names/${id}`)
             .then(res => res.json())
             .then(data => setSingleData(data))
 
     }
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/names/travel01`)
+        fetch(`https://travel-guru-server-ptan01.vercel.app/names/travel01`)
             .then(res => res.json())
             .then(data => setSingleData(data)) 
     },[])

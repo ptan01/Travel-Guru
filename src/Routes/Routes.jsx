@@ -13,12 +13,12 @@ const router = createBrowserRouter([
         {
             path: '/',
             element: <Home></Home>,
-            loader: ()=> fetch('http://localhost:5000/names')
+            loader: ()=> fetch('https://travel-guru-server-ptan01.vercel.app/names')
         },
         {
             path: '/destination/:id',
             element: <Destination></Destination>,
-            loader: ({params}) => fetch(`http://localhost:5000/names/${params.id}`)
+            loader: ({params}) => fetch(`https://travel-guru-server-ptan01.vercel.app/names/${params.id}`)
         },
         {
             path: '/blog',
